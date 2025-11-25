@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Login with invalid credentials",
+      "method": "POST",
+      "body": {
+        "action": "login",
+        "username": "nonexistent",
+        "password": "wrongpassword"
+      },
+      "expectedStatus": 401,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Register new user",
+      "method": "POST",
+      "body": {
+        "action": "register",
+        "username": "testuser123",
+        "password": "testpass123"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "session_token": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
